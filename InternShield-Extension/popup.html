@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InternShield</title>
+  <style>
+    body {
+      font-family: Arial;
+      width: 320px;
+      padding: 10px;
+      background: #f4f6f8;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 13px;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #card {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    #riskBar {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    #riskFill {
+      height: 10px;
+      border-radius: 5px;
+      width: 0%;
+    }
+
+    .red { background: #e74c3c; }
+    .orange { background: #f39c12; }
+    .green { background: #2ecc71; }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 6px;
+      margin: 2px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .danger { background: #ffe0e0; color: #c0392b; }
+    .safe { background: #e0ffe5; color: #27ae60; }
+
+    #highlightedText {
+      margin-top: 8px;
+      font-size: 12px;
+      background: #fafafa;
+      padding: 6px;
+      border-radius: 5px;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    .highlight {
+      background: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<h3>InternShield</h3>
+
+<textarea id="text" rows="5" placeholder="Paste email..."></textarea>
+<button id="scanBtn">Scan</button>
+
+<div id="card">
+  <div id="prediction"></div>
+
+  <div id="riskBar">
+    <div id="riskFill"></div>
+  </div>
+
+  <div id="confidence"></div>
+
+  <div><b> Reasons:</b><div id="reasons"></div></div>
+  <div><b> Safe Signs:</b><ul id="safe"></ul></div>
+
+  <div><b> Highlighted Email:</b></div>
+  <div id="highlighted"></div>
+</div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>

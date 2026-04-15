@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "InternShield",
+  "version": "1.0",
+  "description": "Detect fake internship emails",
+
+  "icons": {
+    "16": "iconn.png",
+    "48": "iconn.png",
+    "128": "iconn.png"
+  },
+
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "iconn.png",
+      "48": "iconn.png",
+      "128": "iconn.png"
+    }
+  }
+}
