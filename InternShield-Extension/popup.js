@@ -1,3 +1,4 @@
+const API = "https://internshield-backend.onrender.com";
 document.getElementById("scanBtn").addEventListener("click", check);
 
 async function check() {
@@ -10,7 +11,7 @@ async function check() {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/analyze-email", {
+    const response = await fetch(`${API}/analyze-email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

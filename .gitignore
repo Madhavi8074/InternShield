@@ -1,4 +1,8 @@
+.venv/
 venv/
 __pycache__/
+*.pkl
 node_modules/
-.env
+dist/
+dataset_generated.csv
+final_dataset.csv

@@ -62,13 +62,18 @@ export default function DashboardPage() {
     setResult(null);
 
     try {
-      const response = await fetch("http://localhost:8000/analyze-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email_text: emailText }),
-      });
+    const API = import.meta.env.VITE_API_URL || "http://internshield-backend.onrender.com/analyze-email";
 
-      if (!response.ok) throw new Error(`Server error: ${response.status}`);
+const response = await fetch(`${API}/analyze-email`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email_text: emailText }),
+});
+
+      if (!response.ok) {
+  const errorText = await response.text();
+  throw new Error(`Server error: ${response.status} - ${errorText}`);
+}
 
       const data: AnalysisResult = await response.json();
       setResult(data);
